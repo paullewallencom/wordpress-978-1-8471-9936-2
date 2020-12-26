@@ -1,0 +1,169 @@
+Chapter 1
+
+
+
+Code Snippet 1
+----------------------------------------------------------------------------------------------------------------------------------------------
+<title>Packt Publishing – About Us</title>
+
+<title>
+<?php wp_title('&laquo;', true, 'right'); ?>
+<?php bloginfo('name'); ?>
+</title>
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 2
+----------------------------------------------------------------------------------------------------------------------------------------------
+/*
+Theme Name: Your Theme's Name.
+Theme URL: Your Theme's URL
+Description: A few sentences describing your theme.
+Author: Author's Name
+Author URL: Your website address.
+Version: The current version number for your theme.
+*/
+<!-- BEGIN HEADER -->
+<!-- END HEADER -->
+
+<!-- BEGIN SIDEBAR -->
+<!-- END SIDEBAR -->
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 3
+----------------------------------------------------------------------------------------------------------------------------------------------
+<!-- BEGIN FOOTER -->
+<!-- END FOOTER -->
+
+<!-- BEGIN MAIN CONTENT -->
+<!-- END MAIN CONTENT -->
+
+<?php
+if ( function_exists('register_sidebar') )
+register_sidebar(array(
+'before_widget' => '',
+'after_widget' => '',
+'before_title' => '<h2>',
+'after_title' => '</h2>',
+));
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 4
+----------------------------------------------------------------------------------------------------------------------------------------------
+add_custom_background();
+
+add_theme_support( 'automatic-feed-links' );
+
+?>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" <?php language_
+attributes(); ?>>
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 5
+----------------------------------------------------------------------------------------------------------------------------------------------
+<head profile="http://gmpg.org/xfn/11">
+
+<title>
+<?php wp_title('&laquo;', true, 'right'); ?>
+<?php bloginfo('name'); ?>
+</title>
+
+<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>"
+type="text/css" media="screen" />
+
+<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
+
+<?php wp_head(); ?>
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 6
+----------------------------------------------------------------------------------------------------------------------------------------------
+<a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a>
+
+<a href="<?php bloginfo('url'); ?>"><img src="<?php
+bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="Logo" style="border: none;" /></a>
+
+<?php wp_list_pages('title_li='); ?>
+
+<?php wp_list_categories( $args ); ?>
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 7
+----------------------------------------------------------------------------------------------------------------------------------------------
+<?php get_header(); ?>
+
+<?php get_sidebar(); ?>
+<?php get_footer(); ?>
+
+<?php if (have_posts()) : ?>
+<?php while (have_posts()) : the_post(); ?>
+
+<div id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" 
+rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></div>
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 8
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Posted in <?php the_category(', ') ?> by <?php the_author() ?> on <?php the_time('F jS, Y') ?> 
+| <?php edit_post_link('Edit', '', ' | '); ?>
+<?php comments_popup_link('No Comments', '1 Comment', '% Comments'); ?>
+
+<?php the_content('Continue Reading...'; ?>
+
+<?php endwhile; ?>
+
+<?php posts_nav_link(); ?>
+
+<?php else : ?>
+<h2>Not Found</h2>
+<p><?php _e("Sorry, no posts or pages could be found. 
+Why not search for what you were trying to find?"); ?></p>
+<?php get_search_form(); ?>
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 9
+----------------------------------------------------------------------------------------------------------------------------------------------
+<?php endif; ?>
+
+<div id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>"rel="bookmark" title="
+<?php the_title(); ?>"><?php the_title(); ?></a></div>
+
+<div id="post-<?php the_ID(); ?>"><?php the_title(); ?></div>
+
+<?php the_content('Continue Reading...'; ?>
+
+<?php the_content(''; ?>
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 10
+----------------------------------------------------------------------------------------------------------------------------------------------
+<?php posts_nav_link(); ?>
+
+<?php previous_post_link('&laquo; % link', '%title'); ?> <?php next_post_link('%link &raquo;') ?>
+
+<?php comments_template(); ?>
+
+<?php previous_post_link('&laquo; % link', '%title'); ?> <?php next_post_link('%link &raquo;') ?>
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 11
+----------------------------------------------------------------------------------------------------------------------------------------------
+<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar() ): ?>
+<?php endif; ?>
+
+<?php wp_footer(); ?>
+----------------------------------------------------------------------------------------------------------------------------------------------

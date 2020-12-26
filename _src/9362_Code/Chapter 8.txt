@@ -1,0 +1,129 @@
+Chapter 8
+
+
+
+Code Snippet 1
+-------------------------------------------------------------------------------------------------------------------------------------
+<?php
+if(isset($_GET['author_name'])) :
+$curauth = get_userdatabylogin($author_name);
+else :
+$curauth = get_userdata(intval($author));
+endif;?>
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 2
+-------------------------------------------------------------------------------------------------------------------------------------
+<title>
+<?php if (is_author () ) {
+single_cat_title(); echo $curauth->company_name, ' &laquo; ' ; bloginfo('name');
+} else { wp_title('&laquo;', true, 'right'); bloginfo('name');
+} ?>
+</title>
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 3
+-------------------------------------------------------------------------------------------------------------------------------------
+<div>
+<div>
+<h2><?php echo $curauth->company_name; ?></h2>
+<?php if( get_the_author_meta('street_address', $curauth->ID) != '') :?>
+<?php echo $curauth->street_address; ?><br />
+<?php endif;?>
+<?php if( get_the_author_meta('city', $curauth->ID) != '') :?>
+<?php echo $curauth->city; ?>, CA
+<?php endif;?>
+</div>
+<div>
+<h2>Website/Contact Information</h2>
+<a href="<?php echo $curauth->user_url; ?>"><?php echo $curauth->user_url; ?></a><br />
+<?php if( get_the_author_meta('phone', $curauth->ID) != '') :?>
+Phone: <?php echo $curauth->phone; ?><br />
+<?php endif;?>
+<?php if( get_the_author_meta('aim', $curauth->ID) != '') :?>
+AIM: <?php echo $curauth->aim; ?><br />
+<?php endif;?>
+<?php if( get_the_author_meta('yim', $curauth->ID) != '') :?>
+Yahoo IM: <?php echo $curauth->yim; ?><br />
+<?php endif;?>
+<?php if( get_the_author_meta('jabber', $curauth->ID) != '') :?>
+Jabber/Google Talk: <?php echo $curauth->jabber; ?><br />
+<?php endif;?>
+</div>
+<div>
+<h2>About <?php echo $curauth->company_name; ?></h2>
+<?php echo $curauth->company_profile; ?>
+<div>
+<?php userphoto($wp_query->get_queried_object()) ?>
+</div>
+</div>
+</div>
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 4
+-------------------------------------------------------------------------------------------------------------------------------------
+
+<?php if( get_the_author_meta('field_name', $curauth->ID) != '') :?> Field Name: <?php echo $curauth->field_name; ?><br />
+<?php endif;?>
+
+Field Name: <?php echo $curauth->field_name; ?><br />
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 5
+-------------------------------------------------------------------------------------------------------------------------------------
+<?php /* Template Name: Static Home */ ?>
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 6
+-------------------------------------------------------------------------------------------------------------------------------------
+
+<div class="tern_wp_members_company_name"><h3><a href="%author_url%">%value%</h3></div>
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 7
+-------------------------------------------------------------------------------------------------------------------------------------
+
+<?php /* Template Name: Members */ ?>
+
+<div>
+<h1><?php the_title(); ?></h1>
+</div>
+<div>
+<?php $members = new tern_members;$members->members(array('search'=>true,'pagination'=>true,'sort'=>true));?>
+</div>
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 8
+-------------------------------------------------------------------------------------------------------------------------------------
+by '.$getOPTS->selectPaired($o,'by','by','','','All Fields',array($_REQUEST['by'])).'
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 9
+-------------------------------------------------------------------------------------------------------------------------------------
+$a = array('Last Name'=>'last_name','First Name'=>'first_name','Registration Date'=>'user_registered','Email'=>'user_email');
+
+$a = array('Company Name'=>'company_name','City'=>'city','Registration Date'=>'user_registered');
+
+'Link Title'=>'field_name'
+
+$s .= '<a class="tern_wp_member_gravatar" href="'.get_bloginfo('url').'/?author='.$u->ID.'">'."\n ".get_avatar($u->ID,60)."\n ".'</a>'."\n ";
+
+$s .= '<a class="tern_wp_member_gravatar" href="'.get_author_posts_url($u->ID).'">'."\n ".get_avatar($u->ID,60)."\n ".'</a>'."\n ";
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Code Snippet 10
+-------------------------------------------------------------------------------------------------------------------------------------
+$s .= "\n ".str_replace('%author_url%',get_bloginfo('url').'/?author='.$u->ID,str_replace('%value%',$u->$v['name'],$v['markup']));
+
+$s .= "\n ".str_replace('%author_url%',get_author_posts_url($u->ID),str_replace('%value%',$u->$v['name'],$v['markup']));
+-------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,54 @@
+Chapter 5
+
+
+Code Snippet 1
+------------------------------------------------------------------------------------------------------------------------------
+
+<?php if (function_exists('ratings_table')) ratings_table(); ?>
+
+<?php if (function_exists('ratings_list')) ratings_list(); ?>
+
+<?php visit_site_link('Visit This Site'); ?>
+------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 2
+------------------------------------------------------------------------------------------------------------------------------
+
+<?php if (function_exists('comment_ratings_table')) comment_ratings_table(); ?>
+
+<?php if (function_exists('comment_ratings_list')) comment_ratings_list(); ?>
+------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 3
+------------------------------------------------------------------------------------------------------------------------------
+
+<?php wp_list_comments( array( 'callback' => 'twentyten_comment' ) ); ?>
+------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 4
+------------------------------------------------------------------------------------------------------------------------------
+<?php if (function_exists('comment_ratings_table')) comment_ratings_table(); ?>
+
+<?php if (function_exists('comment_ratings_list')) comment_ratings_list(); ?>
+
+<?php if (function_exists('ratings_input_table')) ratings_input_table(); ?>
+
+<?php if (function_exists('ratings_input_list')) ratings_input_list(); ?>
+------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 5
+------------------------------------------------------------------------------------------------------------------------------
+<?php rs_comparison_table(5, 'Visit This Site'); ?>
+
+<?php rs_comparison_table(5, 'Visit This Site', 7); ?>
+
+<?php if (function_exists('positive_reviews')) echo positive_
+reviews(); ?> Positive Reviews
+
+<?php if (function_exists('negative_reviews')) echo negative_
+reviews(); ?> Negative Reviews
+------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,46 @@
+Chapter 6
+
+
+Code Snippet 1
+---------------------------------------------------------------------------------------------------------------------------------
+
+<?php if ( !function_exists('dynamic_sidebar')
+|| !dynamic_sidebar() ) : ?>
+<?php endif; ?>
+
+if ( function_exists('register_sidebar') )
+register_sidebar();
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 2
+---------------------------------------------------------------------------------------------------------------------------------
+.header { background: url(images/headerBg.jpg) no-repeat top left; height:150px; }
+.header h1 a { background: url(images/logo.gif) no-repeat top left; }
+
+.header { height:150px; }
+.header h1 a { background: url(images/logo.gif) no-repeat top left;}
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Code Snippet 3
+---------------------------------------------------------------------------------------------------------------------------------
+body { background: url(images/bg.jpg) repeat-x center top; }
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 4
+---------------------------------------------------------------------------------------------------------------------------------
+<li class="page_item<?php if(is_home() && $_GET['poststeps']=="")
+ { ?> current_page_item<?php } ?>"><a href="<?php bloginfo('url'); ?>">Homepage</a>
+</li>
+
+<a href="<?php bloginfo('url'); ?>">
+
+<a href="http://example.com">
+
+<?php $setPageExclude = get_option('setPageExclude'); wp_list_pages("title_li=&depth=1&sort_order=DESC&exclude=$setPageExclude"); ?>
+
+<li><a href="http://example.com/contact-us/">Contact Us</a></li>
+---------------------------------------------------------------------------------------------------------------------------------

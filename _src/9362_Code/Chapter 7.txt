@@ -1,0 +1,30 @@
+Chapter 7
+
+
+Code Snippet 1
+-----------------------------------------------------------------------------------------------------------------------
+<?php
+/*
+Template Name: Members
+*/
+?>
+<?php get_header() ?>
+<div class="sleeve_main">
+<div id="main">
+<h2><?php the_title(); ?></h2>
+<?php wp_list_authors('show_fullname=0&optioncount=0&feed_image=/
+wp-content/themes/p2/i/feed.png'); ?>
+</div> <!-- main -->
+</div> <!-- sleeve -->
+<?php get_footer() ?>
+-----------------------------------------------------------------------------------------------------------------------
+
+
+Code Snippet 2
+-----------------------------------------------------------------------------------------------------------------------
+
+<span class="actions">
+<?php wpfp_link(); ?> |
+<?php if ( !is_single() ) : ?>
+<a href="<?php the_permalink() ?>" class="thepermalink"><?php _e('Permalink', 'p2' ) ?></a>
+-----------------------------------------------------------------------------------------------------------------------
